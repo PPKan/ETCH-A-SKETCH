@@ -1,9 +1,10 @@
 const container = document.querySelector(".container");
-const button = document.querySelector(".btn");
+const resetButton = document.querySelector(".reset");
+const cleanButton = document.querySelector(".clean");
 
 /* first attempt */
 makeFrame(10);
-gridColor();
+gridColor(randomColor);
 
 function makeGrid() {
 
@@ -25,25 +26,36 @@ function makeFrame(frame) {
     }
 }
 
-button.addEventListener('click', (e) => {
+resetButton.addEventListener('click', (e) => {
     const divs = document.querySelectorAll(".grid")
     divs.forEach((div) => {
         container.removeChild(div);
     })
     makeGrid();
-    gridColor();
+    gridColor(randomColor);
 });
 
-function gridColor() {
+cleanButton.addEventListener('click', () => {
+    let grids = document.querySelectorAll(".grid");
+    grids.forEach((grid) => {
+        grid.style.background = "white";
+    });
+});
+
+function gridColor(color) {
     let grids = document.querySelectorAll(".grid");
     grids.forEach((grid) => {
         grid.addEventListener('mouseover', () => {
-            grid.style.background = randomColor();
-            setTimeout(() => grid.style.background = "white", 10000);
+            grid.style.background = color();
+            // setTimeout(() => grid.style.background = "white", 10000);
         });
     });
 }
 
 function randomColor() {
     return "#" + (Math.floor(Math.random() * 16777215)).toString(16);
+}
+
+function whiteColor() {
+    return "white";
 }

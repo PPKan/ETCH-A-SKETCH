@@ -11,6 +11,13 @@ body {
     width: 10%;
 }
 
+.btn-container {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     display: grid;
 
