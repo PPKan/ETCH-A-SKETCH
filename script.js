@@ -2,7 +2,7 @@ const container = document.querySelector(".container");
 const button = document.querySelector(".btn");
 
 /* first attempt */
-makeGrid();
+makeFrame(10);
 gridColor();
 
 function makeGrid() {
@@ -13,6 +13,10 @@ function makeGrid() {
         frame = prompt("What grid do you like? X x X?");
     }
 
+    makeFrame(frame);
+}
+
+function makeFrame(frame) {
     for (let i = 0; i < frame * frame; i += 1) {
         const div = document.createElement('div');
         div.classList = "grid";
@@ -20,7 +24,6 @@ function makeGrid() {
         container.style.gridTemplateColumns = `repeat(${frame}, 1fr)`;
     }
 }
-
 
 button.addEventListener('click', (e) => {
     const divs = document.querySelectorAll(".grid")
@@ -36,7 +39,7 @@ function gridColor() {
     grids.forEach((grid) => {
         grid.addEventListener('mouseover', () => {
             grid.style.background = randomColor();
-            setTimeout(() => grid.style.background = "white", 3000);
+            setTimeout(() => grid.style.background = "white", 10000);
         });
     });
 }
