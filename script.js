@@ -1,8 +1,9 @@
 const container = document.querySelector(".container");
 const button = document.querySelector(".btn");
 
+/* first attempt */
 makeGrid();
-
+gridColor();
 
 function makeGrid() {
 
@@ -26,26 +27,20 @@ button.addEventListener('click', (e) => {
     divs.forEach((div) => {
         container.removeChild(div);
     })
-    console.log(divs);
     makeGrid();
+    gridColor();
 });
 
-const grids = document.querySelectorAll(".grid");
-
-grids.forEach((grid) => {
-    grid.addEventListener('mouseover', () => {
-        grid.style.background = randomColor();
-        setTimeout(() => grid.style.background = "white", 3000);
+function gridColor() {
+    let grids = document.querySelectorAll(".grid");
+    grids.forEach((grid) => {
+        grid.addEventListener('mouseover', () => {
+            grid.style.background = randomColor();
+            setTimeout(() => grid.style.background = "white", 3000);
+        });
     });
-    
-});
+}
 
 function randomColor() {
     return "#" + (Math.floor(Math.random() * 16777215)).toString(16);
-}
-
-let i = 10;
-while (i > 0) {
-    console.log(randomColor())
-    i--;
 }
