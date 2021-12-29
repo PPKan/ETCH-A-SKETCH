@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+}
+
+.btn {
+    align-self: center;
+    width: 10%;
+}
+
+.container {
+    display: grid;
+}
+
+.grid {
+    border: 1pt solid black;
+    aspect-ratio: 1;
+}
